@@ -1,11 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firefly MAL Theme</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
+<style>
+  @font-face {
+    font-family: 'Material Icons';
+    src: url('https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    background: black;
+    color: white;
+    font-family: system-ui;
+    padding-inline: 10vw;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    padding-block: 1rem;
+    border-bottom: 1px solid gray;
+  }
+  code {
+    background: hsl(0, 0%, 10%);
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: 1px solid hsl(0, 0%, 30%);
+  }
+  .tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .tag {
+      &::before {
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 0.3em 0.5em;
+      }
+      &.untested::before {
+        content: "Untested";
+        background: hsl(0, 100%, 15%);
+        border: 1px solid hsl(0, 100%, 35%);
+        border-radius: 10px;
+
+      }
+    }
+  }
+  p {
+    font-size: 1.25rem;
+  }
+  span.code {
+    display: flex;
+    user-select: none;
+    background: hsl(0, 0%, 10%);
+    color: white;
+    width: 100%;
+    height: 100% !important;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid hsl(0, 0%, 30%);
+    font-family: monospace;
+  }
+  .dialog {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 1.1rem;
+    padding: 1.5rem 1rem;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    margin-block: 2rem;
+    position: relative;
+    overflow: hidden;
+    padding-left: 2rem;
+    &::before {
+      content: "test";
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 1.3rem;
+      padding: 0.25em;
+      margin-left: 1rem;
+      border-radius: 0.5rem;
+    }
+    &::after {
+      font-family: "Material Icons";
+      content: "edit";
+      font-size: 15rem;
+      position: absolute;
+      opacity: 0.2;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+
+    &.warning {
+      color: yellow;
+      background-color: rgba(255, 255, 0, 0.2);
+      &::before { content: "warning:" }
+      &::after { content: "warning" }
+    }
+
+    &.important {
+      color: red;
+      background-color: rgba(255, 0, 0, 0.2);
+      &::before { content: "important:" }
+      &::after { content: "error" }
+    }
+  }
+</style>
+<script>
+  hljs.highlightAll();
+</script>
 <body>
-    test page
+  <h1>Firefly MAL Theme</h1>
+  <p>This site is to showcase its properties for the theme.</p>
+  <div class="dialog important">
+    All of the mentioned properties have to be inside of the :root.
+  </div>
+  <h2>
+    <code>--font-text</code>
+  </h2>
+  <p>This property is used to change the font of the entire list.</p>
+  <p>In order to set it up properly, you have to first import the font (you have to do this online only).</p>
+  <p>As an example:</p>
+  <div class="grow-wrap">
+    <pre><code class="code language-css">@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* This is importing the "Albert Sans" font, which is already the default font */
+  
+--font-text: "Albert Sans", "Verdana", system-ui;</code></pre>
+  </div>
+  <h2>
+    <code>--font-icon</code>
+  </h2>
+  <p>This property is used to change the icon pack. It is mandatory to use one in order to get the buttons to show up properly.</p>
+  <p>If you don't like the default icon pack <i>(Material Icons)</i>, you can always choose a different icon pack, and use that instead.</p>
+  <p>For example, we can use Font Awesome:</p>
+
+  <pre><code class="code language-css">@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
+    
+--font-icon: "Font Awesome 7 Free";</code></pre>
+  <p>Then, you can use them anywhere in your list.</p>
+  <p>However, it is best to change the default values as well for the best desired effect.</p>
+  <p>Here's the default icons that you can replace at the moment:</p>
+  <pre><code class="code language-css">--icon-check
+--icon-close
+--icon-search
+--icon-edit
+--icon-all_anime
+--icon-watching
+--icon-completed
+--icon-onhold
+--icon-plantowatch</code></pre>
+  <p>In this example, I want to replace the search icon:</p>
+  <pre><code class="code language-css">/* You do need to find the ID of the icon first. In this case, it is: f002 */
+--icon-search: '\f002';</code></pre>
+  <div class="dialog warning">
+    This may not work on some icon packs.
+  </div>
+  <h2>
+    <code>--clr-primary</code>
+    <code>--clr-secondary</code>
+  </h2>
+  <p>These properties determine the main accent colors for the list.</p>
+  <p>It doesn't have to be Firefly colors; it can be any color you wish.</p>
+  <pre><code class="code language-css">--clr-primary: red;
+--clr-secondary: orange;
+/* On the list's status page, it is now a gradient consisting of those red and orange colors. */
+</code></pre>
+  <h2>
+    <code>--clr-def-white</code>
+    <code>--clr-def-black</code>
+  </h2>
+  <p>These are default values for black and white. They can be interchangeable depending on user's theme on the OS level or on the website level.</p>
+  <p><b>YOU DO NOT NEED TO CHANGE THESE VALUES.</b> If anything, they need to be modified just a tiny amount if you want different shades of white and/or black.</p>
+  <h2>
+    <code>--clr-gray-< 10-50 ></code>
+  </h2>
+  <p>These properties determine the different shades of gray.</p>
+  <p>You can only do 10 different gray colors, 5 for each theme (light/dark).</p>
+  <h2>
+    <code>--clr-score-< 1-10 ></code>
+  </h2>
+  <p>These properties determine the different colors for each score given by the list's user.</p>
+  <p>It is recommended that you leave the values as the default.</p>
+  <h2>
+    <code>--clr-stat-< watching-completed-onhold-dropped-plantowatch ></code>
+  </h2>
+  <p>These properties determine the different colors for each stat of a list item.</p>
+  <p>It is recommended that you leave the values as the default.</p>
+  <h2>
+    <code>--font-size-table</code>
+  </h2>
+  <p>This property changes the size of the font inside of the list table.</p>
+  <p>It is recommended that you leave the value as the default.</p>
 </body>
 </html>
