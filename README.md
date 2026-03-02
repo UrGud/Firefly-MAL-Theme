@@ -29,14 +29,6 @@ Simply go to your list.
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* ICON PACK */
-@font-face {
-  font-family: 'Material Icons';
-  src: url('https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
 *:not(i) {
   font-family: var(--font-text) !important;
 }
