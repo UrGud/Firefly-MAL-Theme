@@ -15,9 +15,9 @@ Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to the
 - Small, cute Firefly next to the MAL logo when anyone visits your list
 
 ## How to add this theme?
-Simply go to your list.
+ - Go to your list.
  - In your sidebar, hover over the gear icon and select `Style Settings`.
- - From there, choose a theme you want to replace. *(We recommend going for this one, since this is the default theme.)*
+ - From there, choose a theme you want to replace. *(We recommend going for this one, since this is the default theme.)*\
    <img width="221" height="217" alt="image" src="https://github.com/user-attachments/assets/bfa0294d-7845-41fc-8967-5d2329e19c82" />
  - Inside of the Custom CSS area, copy/paste the following code:
 
