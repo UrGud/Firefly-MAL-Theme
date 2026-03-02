@@ -22,7 +22,7 @@ Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to the
  - Inside of the Custom CSS area, copy/paste the following code:
 
 ```css
-@import url(); /* DO NOT REMOVE THIS LINE!!! */
+@import url('https://urgud.github.io/Firefly-MAL-Theme/firefly-anime-list.css'); /* DO NOT REMOVE THIS LINE!!! */
 /*
   Do not change the following unless you know what you're doing.
 */
