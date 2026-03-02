@@ -1,2 +1,71 @@
 # Firefly-MAL-Theme
-For fans of Firefly from Honkai: Star Rail who also has MyAnimeList. 
+Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to their list.
+
+> [!WARNING]
+> This theme is in beta. Bugs ahead.
+
+> [!WARNING]
+> This theme was only tested in the Anime list.\
+> We might also make a Manga list in due time.
+
+## Features
+- Firefly theme
+- Responsive layout
+- Uber-customizable (refer to the Settings page)
+- Small, cute Firefly next to the MAL logo when anyone visits your list
+
+## How to add this theme?
+Simply go to your list.
+ - In your sidebar, hover over the gear icon and select `Style Settings`.
+ - From there, choose a theme you want to replace. *(We recommend going for this one, since this is the default theme.)*
+   <img width="221" height="217" alt="image" src="https://github.com/user-attachments/assets/bfa0294d-7845-41fc-8967-5d2329e19c82" />
+ - Inside of the Custom CSS area, copy/paste the following code:
+
+```css
+@import url(); /* DO NOT REMOVE THIS LINE!!! */
+/*
+  Do not change the following unless you know what you're doing.
+*/
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ICON PACK */
+@font-face {
+  font-family: 'Material Icons';
+  src: url('https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*:not(i) {
+  font-family: var(--font-text) !important;
+}
+
+/* ---------------------------------------------------------------- */
+
+/*
+  *** SETTINGS ***
+  Change whatever you want your list to look like.
+*/
+
+:root {
+  /* Do not change this unless you have a different font */
+  --font-text: "Albert Sans", "Verdana", system-ui; /* The first quote is the actual font. Any other fonts listed is as fallback */
+
+  /* Do not change these unless you have a different icon pack */
+  --icon-check: "check";
+  --icon-close: "close";
+  --icon-search: "search";
+  --icon-edit: "edit";
+  --icon-all_anime: "apps";
+  --icon-watching: "remove_red_eye";
+  --icon-completed: "check_circle";
+  --icon-onhold: "remove_circle";
+  --icon-plantowatch: "info";
+
+  /* Not sure what settings you could change? Check the Settings page on the GitHub. */
+}
+```
+ - Once pasted, save the theme.
+ - Select the theme (if you didn't replace the default theme).
+ - You now have your Firefly theme!
