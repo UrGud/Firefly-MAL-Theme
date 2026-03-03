@@ -213,6 +213,18 @@ body {
 
 }
 
+/** Cover image **/
+.cover-block {
+  width: 100% !important;
+  .image-container {
+    padding: 0;
+    width: 100%;
+    img {
+      max-width: 100% !important;
+    }
+  }
+}
+
 /** List container **/
 
 .list-container {
