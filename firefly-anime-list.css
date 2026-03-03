@@ -1014,7 +1014,8 @@ body {
           ***/
 
           &.type,
-          &.number {
+          &.number,
+          .notes {
             display: none !important
           }
 
@@ -1034,17 +1035,18 @@ body {
           }
 
           &.title {
-            left: 0;
-            top: 7px;
             width: 100%;
-            height: 100%;
+            text-align: center;
+            padding: 0 !important;
+            height: auto;
             line-height: 1;
-
-
+            bottom: 35px !important;
 
             .link.sort {
               font-size: 0.95em;
-              max-width: 75% !important;
+              text-align: center;
+              max-width: 100% !important;
+              width: 100% !important;
               anchor-name: --anchor-title !important;
 
               color: var(--clr-def-white) !important;
@@ -1065,34 +1067,43 @@ body {
               width: fit-content;
               height: auto !important;
               position-anchor: --anchor-title;
-              top: calc(anchor(bottom) + 15px) !important;
-              left: calc(anchor(left) + 15px);
+              top: calc(anchor(top) - 10px) !important;
+              left: calc(anchor(left) + 55%);
+              transform: translateX(-50%);
 
               & a {
+                &::before {
+                  font-size: 0.8rem !important;
+                }
                 color: var(--clr-def-white) !important;
               }
             }
 
             .icon-watch2 {
+              display: none; /*Experimental*/
+              position: absolute !important;
               position-anchor: none !important;
-              right: 15px !important;
-              top: 40px !important;
+              right: 0 !important;
+              top: 0 !important;
             }
           }
 
           &.status {
             width: 100% !important;
+            bottom: 0;
             height: 0;
-            padding: 1px !important;
+            padding: 3px !important;
             z-index: 2;
           }
 
           &.score {
-            right: 0;
-            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0px;
             z-index: 3;
-
-            position-anchor: --anchor-score;
+            .score-label {
+              padding: 0.2em 1em;
+            }
           }
 
           &.image {
@@ -1121,12 +1132,10 @@ body {
 
           &.progress {
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 10px;
             font-size: 10px;
 
-            position-anchor: --anchor-notes-text;
-            top: calc(anchor(top) - 25px);
+            bottom: 5px;
           }
         }
       }
