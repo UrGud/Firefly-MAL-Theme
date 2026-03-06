@@ -1,0 +1,23 @@
+[
+  {
+    "version": "0.1.1",
+    "date": "2026-03-03",
+    "name": "Theme docs and more",
+    "description": [
+      "Added documentation for the theme.",
+      "Removed 'No Firefly Icon' setting.",
+      "Removed 'Watch Now' icon and notes. (experimental)",
+      "Styled the cover image to fit in with the responsive design."
+    ]
+  },
+  {
+    "version": "0.1.2",
+    "date": "2026-03-06",
+    "name": "Honkai Star Rail-inspired redesign",
+    "description": [
+      "Made the grid design look like the character select screen from Honkai Star Rail",
+      "Added animation when hovering an anime list item. (experimental)",
+      "Added changelog to the site."
+    ]
+  }
+]

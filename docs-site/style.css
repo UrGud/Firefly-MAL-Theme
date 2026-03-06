@@ -1,0 +1,166 @@
+@font-face {
+  font-family: 'Material Icons';
+  src: url('https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: system-ui;
+  padding-inline: 10vw;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  padding-block: 1rem;
+  border-bottom: 1px solid gray;
+}
+code {
+  background: hsl(0, 0%, 10%);
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  border: 1px solid hsl(0, 0%, 30%);
+}
+.tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .tag {
+    &::before {
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.3em 0.5em;
+    }
+    &.untested::before {
+      content: "Untested";
+      background: hsl(0, 100%, 15%);
+      border: 1px solid hsl(0, 100%, 35%);
+      border-radius: 10px;
+
+    }
+  }
+}
+p {
+  font-size: 1.25rem;
+}
+span.code {
+  display: flex;
+  user-select: none;
+  background: hsl(0, 0%, 10%);
+  color: white;
+  width: 100%;
+  height: 100% !important;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid hsl(0, 0%, 30%);
+  font-family: monospace;
+}
+.dialog {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 1.1rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  margin-block: 2rem;
+  position: relative;
+  overflow: hidden;
+  padding-left: 2rem;
+  &::before {
+    content: "test";
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.3rem;
+    padding: 0.25em;
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+  }
+  &::after {
+    font-family: "Material Icons";
+    content: "edit";
+    font-size: 15rem;
+    position: absolute;
+    opacity: 0.2;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+
+  &.warning {
+    color: yellow;
+    background-color: rgba(255, 255, 0, 0.2);
+    &::before { content: "warning:" }
+    &::after { content: "warning" }
+  }
+
+  &.important {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+    &::before { content: "important:" }
+    &::after { content: "error" }
+  }
+}
+#changelog {
+  margin-top: 50px;
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  background: rgb(30, 30, 30);
+  h2, h3, h4, h5 h6 {
+    border-color: rgb(73, 73, 73);
+  }
+  @media (max-width: 600px) {
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+  }
+}
+details {
+  margin-block: 2rem;
+  summary {
+    padding: 0.5rem 1.5rem;
+    background: rgb(40, 40, 40);
+    :open & {
+      background: rgb(30, 50, 42);
+    }
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    cursor: pointer;
+    flex-wrap: wrap;
+    margin-block: 0.5rem;
+    font-size: 1.65rem;
+    font-weight: 600;
+  }
+  ul {
+    margin-block: 0.5rem;
+    padding-left: 3.5rem;
+    li {
+      margin-block: 1.25rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+footer {
+  padding-block: 50px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    font-weight: 600;
+  }
+}
