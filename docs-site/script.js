@@ -2,7 +2,7 @@ const changelog = document.getElementById("changelog");
 
 const changelogData = async () => {
   try {
-    const res = await fetch("https://urgud.github.io/Firefly-MAL-Theme/changelog.json");
+    const res = await fetch("https://urgud.github.io/Firefly-MAL-Theme/docs-site/changelog.json");
     const data = await res.json();
 
     console.log(data.length);
