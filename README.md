@@ -3,7 +3,7 @@ Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to the
 
 > [!CAUTION]
 > This theme uses the `anchor-name` property, as well as properties related to `anchor()`.\
-> *(and many other modern CSS properties/pseudo-selectors)*\
+> *(and many other modern CSS properties/pseudo-selectors)*
 > 
 > It is only supported on modern browsers.\
 > *(features may break on older browsers)*
