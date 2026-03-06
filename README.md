@@ -1,4 +1,4 @@
-# Firefly-MAL-Theme
+# Firefly MAL Theme
 Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to their list.
 
 > [!CAUTION]
