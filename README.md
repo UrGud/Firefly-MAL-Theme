@@ -1,8 +1,16 @@
 # Firefly-MAL-Theme
 Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to their list.
 
+> [!CAUTION]
+> This theme uses the `anchor-name` property, as well as properties related to `anchor()`.\
+> *(and many other modern CSS properties/pseudo-selectors)*\
+> 
+> It is only supported on modern browsers.\
+> *(features may break on older browsers)*
+
 > [!WARNING]
 > This theme is in beta. Bugs ahead.
+
 
 > [!WARNING]
 > This theme was only tested in the Anime list.\
@@ -55,9 +63,12 @@ Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to the
   --icon-onhold: "remove_circle";
   --icon-plantowatch: "info";
 
-  /* Not sure what settings you could change? Check the Settings page on the GitHub. */
+  /*
+    Not sure what settings you can change? Check out the official docs on the GitHub.
+    https://urgud.github.io/Firefly-MAL-Theme/
+  */
 }
 ```
  - Once pasted, save the theme.
  - Select the theme (if you didn't replace the default theme).
- - You now have your Firefly theme!
+### And you're done! You now have the Firefly MAL theme!
