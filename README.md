@@ -52,17 +52,6 @@ Firefly MAL Theme is a MyAnimeList theme that aims to add a Firefly theme to the
   /* Do not change this unless you have a different font */
   --font-text: "Albert Sans", "Verdana", system-ui; /* The first quote is the actual font. Any other fonts listed is as fallback */
 
-  /* Do not change these unless you have a different icon pack */
-  --icon-check: "check";
-  --icon-close: "close";
-  --icon-search: "search";
-  --icon-edit: "edit";
-  --icon-all_anime: "apps";
-  --icon-watching: "remove_red_eye";
-  --icon-completed: "check_circle";
-  --icon-onhold: "remove_circle";
-  --icon-plantowatch: "info";
-
   /*
     Not sure what settings you can change? Check out the official docs on the GitHub.
     https://urgud.github.io/Firefly-MAL-Theme/
