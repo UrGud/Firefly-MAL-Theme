@@ -100,6 +100,16 @@
   --icon-completed: "check_circle";
   --icon-onhold: "remove_circle";
   --icon-plantowatch: "info";
+  
+  --icon-add: "add";
+  --icon-quick-add: "add";
+  --icon-anime-list: "list";
+  --icon-manga-list: "list";
+  --icon-statistics: "stats";
+  --icon-history: "history";
+  --icon-export: "export";
+  --icon-logout: "logout";
+  --icon-settings: "settings";
 
   /* ---------------------------------------------------------------- */
   /* Change the following values only if you what you're doing */
@@ -1016,8 +1026,28 @@ body {
         width: 100% !important;
         display: flex !important;
         flex-direction: column;
-        border-radius: 10px;
+        border-top-right-radius: 20px;
         overflow: hidden;
+        
+        &:hover {
+          box-shadow: 0 5px 15px black;
+          
+          .data {
+            &.image {
+              position: relative;
+              transform: scale(1.1);
+              z-index: 0;
+              
+              &::before {
+                z-index: 10;
+                opacity: 1;
+              }
+            }
+            &.title {
+              transform: translateY(0);
+            }
+          }
+        }
 
         .data {
 
@@ -1038,12 +1068,15 @@ body {
           /***
             Thank you for your cooperation :3
           ***/
+          
+          /* NOTE: The popup animation is experimental: */
 
           &.status,
           &.title,
           &.score,
           &.progress {
             position: absolute;
+            z-index: 2;
           }
 
           &.title {
@@ -1053,6 +1086,8 @@ body {
             height: auto;
             line-height: 1;
             bottom: 35px !important;
+            transform: translateY(500%);
+            transition: 0.2s ease-out;
 
             .link.sort {
               font-size: 0.95em;
@@ -1125,20 +1160,24 @@ body {
             height: auto;
             border: none !important;
             border-radius: 0 !important;
+            transition: 0.2s ease-out;
 
             img {
               width: 100%;
               height: auto;
+              transition: 0.2s ease-out;
             }
 
             &::before {
+              transition: 0.2s ease-out;
               content: "";
               position: absolute;
               inset: 0;
               width: 100% !important;
               height: 100%;
-              background: linear-gradient(0deg, black, transparent, black);
-              z-index: 0;
+              background: linear-gradient(0deg, black 20%, transparent 70%);
+              opacity: 0;
+              z-index: 1;
             }
           }
 
@@ -1146,8 +1185,22 @@ body {
             bottom: 0;
             left: 10px;
             font-size: 10px;
-
             bottom: 5px;
+            
+            & > div {
+              display: grid;
+              gap: 7px;
+              place-items: center;
+              grid-template-columns: repeat(3, 1fr);
+              
+              & :nth-child(3) {
+                order: -1;
+              }
+              
+              & :nth-child(2) {
+                margin-left: -10px;
+              }
+            }
           }
         }
       }
