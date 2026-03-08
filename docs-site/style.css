@@ -10,11 +10,23 @@ body {
   color: white;
   font-family: system-ui;
   padding-inline: 10vw;
+  @media screen and (max-width: 900px) {
+    padding-inline: 2vw;
+  }
 }
-*, *::before, *::after {
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -23,6 +35,7 @@ h1,h2,h3,h4,h5,h6 {
   padding-block: 1rem;
   border-bottom: 1px solid gray;
 }
+
 code {
   background: hsl(0, 0%, 10%);
   padding: 0.5rem;
@@ -30,28 +43,53 @@ code {
   font-size: 1.2rem;
   border: 1px solid hsl(0, 0%, 30%);
 }
+
 .tags {
   display: flex;
   align-items: center;
   gap: 10px;
+
   .tag {
+    height: 100%;
+    display: flex;
+    align-items: center;
     &::before {
       font-weight: 500;
       font-size: 1.1rem;
       padding: 0.3em 0.5em;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      border-radius: 10px;
     }
-    &.untested::before {
-      content: "Untested";
+
+    &.deprecated::before {
+      content: "deprecated";
       background: hsl(0, 100%, 15%);
       border: 1px solid hsl(0, 100%, 35%);
-      border-radius: 10px;
+      color: color-mix(in srgb, hsl(0, 100%, 50%) 20%, white);
+    }
 
+    &.modified::before {
+      content: "modified";
+      background: hsl(50, 100%, 15%);
+      border: 1px solid hsl(50, 100%, 35%);
+      color: color-mix(in srgb, hsl(50, 100%, 50%) 20%, white);
+    }
+
+    &.new::before {
+      content: "new";
+      background: hsl(200, 100%, 15%);
+      border: 1px solid hsl(200, 100%, 35%);
+      color: color-mix(in srgb, hsl(200, 100%, 50%) 20%, white);
     }
   }
 }
+
 p {
   font-size: 1.25rem;
 }
+
 span.code {
   display: flex;
   user-select: none;
@@ -65,19 +103,29 @@ span.code {
   border: 1px solid hsl(0, 0%, 30%);
   font-family: monospace;
 }
+
 .dialog {
   display: flex;
-  align-items: start;
-  flex-direction: column;
-  gap: 0.2rem;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.1rem;
   padding: 1.5rem 1rem;
-  border: 1px solid;
   border-radius: 0.5rem;
   margin-block: 2rem;
   position: relative;
   overflow: hidden;
   padding-left: 2rem;
+  line-height: 2;
+
+  @media screen and (max-width: 900px) {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .text {
+    line-height: 2;
+  }
+
   &::before {
     content: "test";
     text-transform: uppercase;
@@ -87,6 +135,7 @@ span.code {
     margin-left: 1rem;
     border-radius: 0.5rem;
   }
+
   &::after {
     font-family: "Material Icons";
     content: "edit";
@@ -95,44 +144,97 @@ span.code {
     opacity: 0.2;
     top: 50%;
     transform: translateY(-50%);
-    left: 0;
+    left: -15px;
   }
 
   &.warning {
     color: yellow;
     background-color: rgba(255, 255, 0, 0.2);
-    &::before { content: "warning:" }
-    &::after { content: "warning" }
+
+    &::before {
+      content: "warning:"
+    }
+
+    &::after {
+      content: "warning"
+    }
   }
 
   &.important {
     color: red;
     background-color: rgba(255, 0, 0, 0.2);
-    &::before { content: "important:" }
-    &::after { content: "error" }
+
+    &::before {
+      content: "important:"
+    }
+
+    &::after {
+      content: "error"
+    }
+  }
+
+  &.caution {
+    color: hsl(341, 100%, 50%);
+    background-color: hsla(341, 100%, 50%, 0.2);
+
+    &::before {
+      content: "caution:"
+    }
+
+    &::after {
+      content: "close"
+    }
+  }
+
+  &.note {
+    color: hsl(200, 100%, 50%);
+    background-color: hsla(200, 100%, 50%, 0.2);
+    &::before {
+      content: "note:"
+    }
+  
+    &::after {
+      content: "info"
+    }
   }
 }
+
 #changelog {
   margin-top: 50px;
   padding: 2rem 3rem;
   border-radius: 20px;
   background: rgb(30, 30, 30);
-  h2, h3, h4, h5 h6 {
+
+  h2,
+  h3,
+  h4,
+  h5 h6 {
     border-color: rgb(73, 73, 73);
   }
+
   @media (max-width: 600px) {
     border-radius: 10px;
     padding: 0.5rem 1.5rem;
   }
 }
+
 details {
   margin-block: 2rem;
+
   summary {
-    padding: 0.5rem 1.5rem;
+    padding: 1rem 1.5rem;
+    gap: 15px;
     background: rgb(40, 40, 40);
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
     :open & {
       background: rgb(30, 50, 42);
     }
+
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -144,9 +246,14 @@ details {
     font-size: 1.65rem;
     font-weight: 600;
   }
+
   ul {
-    margin-block: 0.5rem;
-    padding-left: 3.5rem;
+    @media screen and (min-width: 900px) {
+      padding-left: 4.5rem;
+    }
+    margin-block: 1rem;
+    margin-left: -1rem;
+
     li {
       margin-block: 1.25rem;
       font-size: 1.2rem;

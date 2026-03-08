@@ -1,5 +1,13 @@
 [
   {
+    "version": "0.1",
+    "date": "2026-03-02",
+    "name": "Theme launch",
+    "description": [
+      "Added the theme."
+    ]
+  },
+  {
     "version": "0.1.1",
     "date": "2026-03-03",
     "name": "Theme docs and more",
@@ -15,9 +23,24 @@
     "date": "2026-03-06",
     "name": "Honkai Star Rail-inspired redesign",
     "description": [
-      "Made the grid design look like the character select screen from Honkai Star Rail",
+      "Made the grid design look like the character select screen from Honkai Star Rail.",
       "Added animation when hovering an anime list item. (experimental)",
-      "Added changelog to the docs site."
+      "Added changelog to the site."
+    ]
+  },
+  {
+    "version": "0.2",
+    "date": "2026-03-08",
+    "name": "Accessibility changes and more",
+    "description": [
+      "Made changing the theme easier. (via color-scheme)",
+      "5 more default gray colors added.",
+      "Added the --side-logo property: allows the user to change the image next to the main logo",
+      "Default font is now system-ui. (before, there was no default)",
+      "More default icons to change from.",
+      "Changed the design of sidebar.",
+      "Fixed overflow on the title when hovering on the list item.",
+      "Changed docs"
     ]
   }
 ]

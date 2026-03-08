@@ -10,6 +10,12 @@
   font-style: normal;
 }
 
+*:not(i),
+*:not(i)::before,
+*:not(i)::after {
+  font-family: var(--font-text);
+}
+
 /* ---------------------------------------------------------------- */
 
 /*
@@ -18,10 +24,18 @@
 */
 
 :root {
+  /* color-scheme: light dark !important;  */
+
+  /*
+  Uncomment this line ^ if you want just that one theme. You have to use !important at the end, otherwise it won't work
+  */
 
   --font-text: system-ui;
   /*  Please make sure to change this value to any other font you're going to use;
       although the naming convention might not work seemlessly. */
+
+  --side-logo: url("https://upload-os-bbs.hoyolab.com/upload/2024/07/10/268570541/46445c2d5d80ab898ec1dcccaf44930e_2037043727854361374.png?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70");
+  /* Change this to whatever other image you want to be next to the logo*/
 
   --font-icon: "Material Icons";
   /* This is for the icon pack. DO NOT REMOVE THIS LINE */
@@ -33,38 +47,25 @@
   /* ---------------------------------------------------------------- */
   /* Don't remove this line. If possible, modify those colors just slightly */
 
-  --clr-def-white: hsl(0, 0%, 100%);
-  --clr-def-black: hsl(0, 0%, 0%);
+  --clr-base-white: hsl(0, 0%, 100%);
+  --clr-base-black: hsl(0, 0%, 0%);
 
-  @media (prefers-color-scheme: dark) {
-    --clr-white: var(--clr-def-white);
-    --clr-black: var(--clr-def-black);
-  }
-
-  @media (prefers-color-scheme: light) {
-    --clr-white: var(--clr-def-black);
-    --clr-black: var(--clr-def-white);
-  }
-
+  --clr-white: light-dark(var(--clr-base-black), var(--clr-base-white));
+  --clr-black: light-dark(var(--clr-base-white), var(--clr-base-black));
   /* ---------------------------------------------------------------- */
-  /* Here there are 5 different gray colors (for both light and dark). Use any of them in your list. */
 
-  @media (prefers-color-scheme: dark) {
-    --clr-gray-10: hsl(0, 0%, 5%);
-    --clr-gray-20: hsl(0, 0%, 10%);
-    --clr-gray-30: hsl(0, 0%, 15%);
-    --clr-gray-40: hsl(0, 0%, 20%);
-    --clr-gray-50: hsl(0, 0%, 25%);
-  }
+  --clr-gray: var(--clr-black);
 
-  @media (prefers-color-scheme: light) {
-    --clr-gray-10: hsl(0, 0%, 95%);
-    --clr-gray-20: hsl(0, 0%, 90%);
-    --clr-gray-30: hsl(0, 0%, 85%);
-    --clr-gray-40: hsl(0, 0%, 80%);
-    --clr-gray-50: hsl(0, 0%, 75%);
-  }
-
+  --clr-gray-10: color-mix(in srgb, var(--clr-white) 5%, var(--clr-gray));
+  --clr-gray-20: color-mix(in srgb, var(--clr-white) 10%, var(--clr-gray));
+  --clr-gray-30: color-mix(in srgb, var(--clr-white) 15%, var(--clr-gray));
+  --clr-gray-40: color-mix(in srgb, var(--clr-white) 20%, var(--clr-gray));
+  --clr-gray-50: color-mix(in srgb, var(--clr-white) 25%, var(--clr-gray));
+  --clr-gray-60: color-mix(in srgb, var(--clr-white) 30%, var(--clr-gray));
+  --clr-gray-70: color-mix(in srgb, var(--clr-white) 35%, var(--clr-gray));
+  --clr-gray-80: color-mix(in srgb, var(--clr-white) 40%, var(--clr-gray));
+  --clr-gray-90: color-mix(in srgb, var(--clr-white) 45%, var(--clr-gray));
+  --clr-gray-100: color-mix(in srgb, var(--clr-white) 50%, var(--clr-gray));
   /* ---------------------------------------------------------------- */
   /* These are the score colors. If you have a specific theme in mind, change those colors. */
 
@@ -100,16 +101,17 @@
   --icon-completed: "check_circle";
   --icon-onhold: "remove_circle";
   --icon-plantowatch: "info";
-  
+
   --icon-add: "add";
   --icon-quick-add: "add";
-  --icon-anime-list: "list";
-  --icon-manga-list: "list";
-  --icon-statistics: "stats";
+  --icon-anime-list: "list_alt";
+  --icon-manga-list: "library_books";
+  --icon-statistics: "bar_chart";
   --icon-history: "history";
-  --icon-export: "export";
+  --icon-export: "outbound";
   --icon-logout: "logout";
   --icon-settings: "settings";
+  --icon-filter: "filter_alt";
 
   /* ---------------------------------------------------------------- */
   /* Change the following values only if you what you're doing */
@@ -127,38 +129,22 @@
 /** Body **/
 
 html {
+  background: var(--clr-gray-10);
   display: flex;
   justify-content: center;
 }
 
 .appearance-light {
-  --clr-white: var(--clr-def-black);
-  --clr-black: var(--clr-def-white);
+  color-scheme: light;
+}
 
-  --clr-gray-10: hsl(0, 0%, 95%);
-  --clr-gray-20: hsl(0, 0%, 90%);
-  --clr-gray-30: hsl(0, 0%, 85%);
-  --clr-gray-40: hsl(0, 0%, 80%);
-  --clr-gray-50: hsl(0, 0%, 75%);
+.appearance-dark {
+  color-scheme: dark;
 }
 
 body {
-
-  font-family: var(--font);
+  background: var(--clr-gray-10) !important;
   width: 90%;
-
-  @media (prefers-color-scheme: dark) {
-    background: var(--clr-gray-10) !important;
-  }
-
-  @media (prefers-color-scheme: light) {
-    background: var(--clr-gray-50) !important;
-  }
-}
-
-*::before,
-*::after {
-  font-family: var(--font);
 }
 
 /** Sidebar (list-menu-float) **/
@@ -177,29 +163,99 @@ body {
   /* This makes sure that the font gets used properly */
 
   &>* {
-    font-family: var(--font);
+    font-family: var(--font-text);
   }
+
+  .quick-add::before {
+    content: var(--icon-quick-add);
+    font-style: italic;
+  }
+
+  .anime-list::before {
+    content: var(--icon-anime-list);
+  }
+
+  .manga-list::before {
+    content: var(--icon-manga-list);
+  }
+
+  .statistics::before {
+    content: var(--icon-statistics);
+  }
+
+  .history::before {
+    content: var(--icon-history);
+  }
+
+  .export::before {
+    content: var(--icon-export);
+  }
+
+  .logout::before {
+    content: var(--icon-logout);
+  }
+
+  .setting::before {
+    content: var(--icon-settings);
+  }
+
+
 
   /* ---------------------------------------------------------------- */
 
   /* Icon menu */
 
+  .profile:hover {
+    scale: 0.9;
+  }
+
+  .profile:active {
+    scale: 1 0.7;
+  }
+
   & .icon-menu {
     background: none;
+    border-top-right-radius: 20px;
+    transition-timing-function: ease-out;
+    transition-duration: 0.25s;
 
-    & .icon {
-      fill: var(--clr-white) !important;
+    .icon {
+      display: none;
+    }
+
+    .text {
+      font-family: var(--font-text) !important;
+      transition-timing-function: ease-out;
+      transition-duration: 0.2s;
+    }
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      right: unset;
+      top: 0;
+      padding: 12px;
+      color: var(--clr-white);
+      font-size: 2em;
+      font-family: var(--font-icon);
+    }
+
+    &:hover::before {
+      color: var(--clr-black);
+    }
+
+    &:not(.profile) {
+      background: linear-gradient(90deg, var(--clr-primary) 0%, transparent);
+      background-repeat: no-repeat;
+      background-size: 200%;
+      background-position: 200%;
     }
 
     &:not(.profile):hover {
-      background: var(--clr-primary);
+      background: linear-gradient(90deg, var(--clr-primary) 100%, transparent);
 
       & .text {
         color: var(--clr-gray-20) !important;
-      }
-
-      & .icon {
-        fill: var(--clr-gray-20) !important;
       }
 
       & .link-list-setting,
@@ -226,9 +282,11 @@ body {
 /** Cover image **/
 .cover-block {
   width: 100% !important;
+
   .image-container {
     padding: 0;
     width: 100%;
+
     img {
       max-width: 100% !important;
     }
@@ -393,6 +451,16 @@ body {
 
         .stats a {
           color: var(--clr-black);
+
+          &#show-stats-button i::before {
+            font-family: var(--font-icon);
+            content: var(--icon-statistics);
+          }
+
+          &#advanced-options-button i::before {
+            font-family: var(--font-icon);
+            content: var(--icon-filter);
+          }
         }
 
       }
@@ -919,7 +987,7 @@ body {
       height: 40px;
       object-fit: fill;
 
-      background: url("https://upload-os-bbs.hoyolab.com/upload/2024/07/10/268570541/46445c2d5d80ab898ec1dcccaf44930e_2037043727854361374.png?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70") no-repeat center / contain;
+      background: var(--side-logo) no-repeat center / contain;
     }
   }
 
@@ -1028,21 +1096,22 @@ body {
         flex-direction: column;
         border-top-right-radius: 20px;
         overflow: hidden;
-        
+
         &:hover {
           box-shadow: 0 5px 15px black;
-          
+
           .data {
             &.image {
               position: relative;
               transform: scale(1.1);
               z-index: 0;
-              
+
               &::before {
                 z-index: 10;
                 opacity: 1;
               }
             }
+
             &.title {
               transform: translateY(0);
             }
@@ -1068,7 +1137,7 @@ body {
           /***
             Thank you for your cooperation :3
           ***/
-          
+
           /* NOTE: The popup animation is experimental: */
 
           &.status,
@@ -1086,7 +1155,8 @@ body {
             height: auto;
             line-height: 1;
             bottom: 35px !important;
-            transform: translateY(500%);
+            z-index: 1;
+            transform: translateY(400%);
             transition: 0.2s ease-out;
 
             .link.sort {
@@ -1122,12 +1192,14 @@ body {
                 &::before {
                   font-size: 0.8rem !important;
                 }
+
                 color: var(--clr-def-white) !important;
               }
             }
 
             .icon-watch2 {
-              display: none; /*Experimental*/
+              display: none;
+              /*Experimental*/
               position: absolute !important;
               position-anchor: none !important;
               right: 0 !important;
@@ -1148,6 +1220,7 @@ body {
             transform: translateX(-50%);
             bottom: 0px;
             z-index: 3;
+
             .score-label {
               padding: 0.2em 1em;
             }
@@ -1158,7 +1231,6 @@ body {
             padding: 0;
             width: 100%;
             height: auto;
-            border: none !important;
             border-radius: 0 !important;
             transition: 0.2s ease-out;
 
@@ -1166,6 +1238,8 @@ body {
               width: 100%;
               height: auto;
               transition: 0.2s ease-out;
+              border: none;
+              border-radius: 0;
             }
 
             &::before {
@@ -1186,17 +1260,17 @@ body {
             left: 10px;
             font-size: 10px;
             bottom: 5px;
-            
-            & > div {
+
+            &>div {
               display: grid;
               gap: 7px;
               place-items: center;
               grid-template-columns: repeat(3, 1fr);
-              
+
               & :nth-child(3) {
                 order: -1;
               }
-              
+
               & :nth-child(2) {
                 margin-left: -10px;
               }

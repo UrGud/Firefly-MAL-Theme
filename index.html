@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,40 +13,80 @@
 <script>
   hljs.highlightAll();
 </script>
+
 <body>
   <h1>Firefly MAL Theme</h1>
   <p>This site is to showcase its properties for the theme.</p>
+
   <section id="changelog">
     <h1>Changelog</h1>
   </section>
+
   <div class="dialog important">
     All of the mentioned properties have to be inside of the :root.
   </div>
+
+  <h2>
+    <code>color-scheme</code>
+    <div class="tags">
+      <div class="tag new"></div>
+    </div>
+  </h2>
+  <p>As of Version 0.2, you can now change the theme by just using this property.</p>
+  <div class="grow-wrap">
+    <pre><code class="code language-css">
+/* If you want to use only light mode: */
+color-scheme: light;
+  
+/* If you want to use only dark mode: */
+color-scheme: dark;
+  
+/* If you want to use both of the themes at once (for accessibility): */
+color-scheme: light dark;
+  </code></pre>
+  </div>
+
   <h2>
     <code>--font-text</code>
   </h2>
   <p>This property is used to change the font of the entire list.</p>
   <p>In order to set it up properly, you have to first import the font (you have to do this online only).</p>
-  <p>As an example:</p>
+  <p>As an example, we'll use Google Fonts. The font we picked is Albert Sans.</p>
   <div class="grow-wrap">
     <pre><code class="code language-css">@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-/* This is importing the "Albert Sans" font, which is already the default font */
   
---font-text: "Albert Sans", "Verdana", system-ui;</code></pre>
+--font-text: "Albert Sans";</code></pre>
   </div>
+  <p>If your font does take longer to load, you have to add fallbacks:</p>
+  <div class="grow-wrap">
+    <pre><code class="code language-css">--font-text: "Albert Sans", "Verdana", system-ui;
+
+/*
+  In this example, the very first font that'll load is "Albert Sans",
+  which is the font that we've imported using Google Fonts.
+
+  If that font doesn't load right away, it'll use "Verdana" as a fallback.
+
+  However, if "Verdana" doesn't exist on the user's machine,
+  then it'll fallback to *system-ui*. (which is the browser's way of checking
+  what the font the OS defaults to)
+*/</code></pre>
+  </div>
+
   <h2>
     <code>--font-icon</code>
   </h2>
-  <p>This property is used to change the icon pack. It is mandatory to use one in order to get the buttons to show up properly.</p>
-  <p>If you don't like the default icon pack <i>(Material Icons)</i>, you can always choose a different icon pack, and use that instead.</p>
+  <p>This property is used to change the icon pack. It is mandatory to use one in order to get the buttons to show up
+    properly.</p>
+  <p>If you don't like the default icon pack <i>(Material Icons)</i>, you can always choose a different icon pack, and
+    use that instead.</p>
   <p>For example, we can use Font Awesome:</p>
 
   <pre><code class="code language-css">@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
     
 --font-icon: "Font Awesome 7 Free";</code></pre>
-  <p>Then, you can use them anywhere in your list.</p>
-  <p>However, it is best to change the default values as well for the best desired effect.</p>
-  <p>Here's the default icons that you can replace at the moment:</p>
+  <p>Then, you can use them anywhere in your list. However, it is best to change the default values as well for the best desired effect.</p>
+  <p>Here are the default icons that you can replace at the moment:</p>
   <pre><code class="code language-css">--icon-check
 --icon-close
 --icon-search
@@ -54,13 +95,44 @@
 --icon-watching
 --icon-completed
 --icon-onhold
---icon-plantowatch</code></pre>
-  <p>In this example, I want to replace the search icon:</p>
-  <pre><code class="code language-css">/* You do need to find the ID of the icon first. In this case, it is: f002 */
+--icon-plantowatch
+--icon-add
+--icon-quick-add
+--icon-anime-list
+--icon-manga-list
+--icon-statistics
+--icon-history
+--icon-export
+--icon-logout
+--icon-settings
+--icon-filter</code></pre>
+  <p>In this example, we'll be replacing the search icon:</p>
+  <pre><code class="code language-css">/* 
+  You do need to find the ID of the icon first.
+  In this case, it is: *\f002*
+*/
+
 --icon-search: '\f002';</code></pre>
   <div class="dialog warning">
     This may not work on some icon packs.
   </div>
+
+  <h2>
+    <code>--side-logo</code>
+    <div class="tags">
+      <span class="tag new"></span>
+    </div>
+  </h2>
+  <p>
+    This property changes the image right next to the main logo.
+  </p>
+  <pre><code class="code language-css">--side-logo: url("https://upload-os-bbs.hoyolab.com/upload/2024/07/10/268570541/46445c2d5d80ab898ec1dcccaf44930e_2037043727854361374.png?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70");
+
+/* This is the default image */</code></pre>
+  <div class="dialog warning">
+    This has to be a valid image url, otherwise it won't work.
+  </div>
+
   <h2>
     <code>--clr-primary</code>
     <code>--clr-secondary</code>
@@ -69,19 +141,65 @@
   <p>It doesn't have to be Firefly colors; it can be any color you wish.</p>
   <pre><code class="code language-css">--clr-primary: red;
 --clr-secondary: orange;
-/* On the list's status page, it is now a gradient consisting of those red and orange colors. */
+
+/* On the list's status page, it is now a gradient
+consisting of those red and orange colors. */
 </code></pre>
+  
   <h2>
-    <code>--clr-def-white</code>
-    <code>--clr-def-black</code>
+    <code>--clr-base-white</code>
+    <code>--clr-base-black</code>
+    <div class="tags">
+      <span class="tag modified"></span>
+    </div>
   </h2>
-  <p>These are default values for black and white. They can be interchangeable depending on user's theme on the OS level or on the website level.</p>
-  <p><b>YOU DO NOT NEED TO CHANGE THESE VALUES.</b> If anything, they need to be modified just a tiny amount if you want different shades of white and/or black.</p>
+  <p>These are default (base) values for black and white. They can be interchangeable depending on user's theme on the OS level
+    or on the website level.</p>
+  <p><b>YOU DO NOT NEED TO CHANGE THESE VALUES.</b> If anything, they need to be modified just a tiny amount if you want
+    different shades of white and/or black.</p>
+  <div class="dialog note">
+    Before Version 0.2, those properties were named <code>--clr-def-white</code> and <code>--clr-def-black</code>
+  </div>
+  
   <h2>
     <code>--clr-gray-< 10-50 ></code>
+    <div class="tags">
+      <span class="tag deprecated"></span>
+    </div>
   </h2>
   <p>These properties determine the different shades of gray.</p>
   <p>You can only do 10 different gray colors, 5 for each theme (light/dark).</p>
+
+  <div class="dialog caution">
+    <div class="text">
+      This property has been deprecated as of Version 0.2.
+      <br>
+      While you can still modify those properties, we recommend using the <code>--clr-gray</code> property instead, to change all of the gray colors at once.
+    </div>
+  </div>
+  <h2>
+    <code>--clr-gray</code>
+    <div class="tags">
+      <span class="tag new"></span>
+    </div>
+  </h2>
+  <p>This property allows you to modify all of the gray color properties inside of the list.</p>
+  <p>It is recommended that you leave the value as default for the best desired effect.</p>
+  <pre><code class="code language-css">--clr-gray: var(--clr-black);
+
+/* Default */</code></pre>
+  <div class="dialog important">
+    <div class="text">
+      If you want the property to work for dark/light themes, add the <code>light-dark()</code> function built in modern CSS.
+    </div>
+  </div>
+  <pre><code class="code language-css">--clr-gray: light-dark(gray, black);
+  
+/* First value is for the light theme,
+   second value is for the dark theme. */</code></pre>
+  <p>Then, later on, when you want to use the gray colors on the list, just add <code>var(--clr-gray-< number >)</code> to add it.</p>
+  <p>The default amount of gray colors you can add is <b>10</b>.</p>
+  
   <h2>
     <code>--clr-score-< 1-10 ></code>
   </h2>
@@ -102,4 +220,5 @@
     <span>Made with ❤️ by UrGud.</span>
   </footer>
 </body>
+
 </html>
